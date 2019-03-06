@@ -8,10 +8,16 @@ import os
 
 ############################################################################
 ###Credentials Administrator or one with manager access of Attendance module.
-username = 'your-user-name-here'
-password = 'your-password-here'
-db = 'your-database-name-here' #database name
-url='your-odooserver-url-here' #odooserver url
+# username = 'your-user-name-here'
+# password = 'your-password-here'
+# db = 'your-database-name-here' #database name
+# url='your-odooserver-url-here' #odooserver url
+
+# Example
+username = 'xmlrpc'
+password = 'foo'
+db = 'xmlrpc'
+url='http://localhost:8082'
 
 ############################################################################
 ###Help Usuage Printing.
@@ -48,9 +54,12 @@ except IndexError as indexerrio:
 
 ############################################################################
 ### xmlrpc objects
-common = xmlrpc.client.ServerProxy('{}/xmlrpc/2/common'.format(url))
-models = xmlrpc.client.ServerProxy('{}/xmlrpc/2/object'.format(url))
-
+try:
+    common = xmlrpc.client.ServerProxy('{}/xmlrpc/2/common'.format(url))
+    models = xmlrpc.client.ServerProxy('{}/xmlrpc/2/object'.format(url))
+except IOError as ioerror:
+    print("Check Script Credentials")
+    exit()
 ############################################################################
 ###Get UserID of the employee authenticated with above usernmae.
 uid = common.authenticate(db, username, password, {})
@@ -80,20 +89,20 @@ if attend_state == 'checked_out' and chkinout == 'checkin':
     result=models.execute_kw(db, uid, password, 'hr.employee','attendance_manual',[[usr_emp_id],['hr_attendance.hr_attendance_action_my_attendances']])
     check_in= result['action']['attendance']['check_in']
     check_out= result['action']['attendance']['check_out']
-    print('Checked In/out at',check_in,check_out)
+    print('CheckedIn')
 elif (attend_state == 'checked_in' and chkinout == 'checkout'):
     print('Checking out ...')
     result = models.execute_kw(db, uid, password, 'hr.employee','attendance_manual',[[usr_emp_id],['hr_attendance.hr_attendance_action_my_attendances']])
     check_in = result['action']['attendance']['check_in']
     check_out = result['action']['attendance']['check_out']
-    print('Checked In/out at',check_in,check_out)
+    print('CheckedOut')
 elif (attend_state == 'checked_in' and chkinout == 'checkin'):
-    print('You are already checked in at:')
-    print("Please checkout first.")
+    print('You are already Checked In.')
+    print("Please CheckOut first.")
     attend_help()
 elif (attend_state == 'checked_out' and chkinout == 'checkout'):
-    print("You have already checked out at :",)
-    print("Please checkin first.")
+    print("You have already Checked Out.")
+    print("Please CheckIn first.")
 else:
     print("Makeup your mind. It's easy either checkin or checkout.")
     attend_help()
