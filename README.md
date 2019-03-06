@@ -1,5 +1,5 @@
 # attend-xml-odoo
-> fully functional python script to be able to xmlrpc with odoo for attendances.
+> fully functional python script able to xmlrpc with Odoo for attendances.
 
 ![](header.gif)
 
@@ -16,9 +16,10 @@ chmod +x attend.py
 ## Usage example
 ```
 python2 attend.py <username> checkin/out
+./attend.py invoron checkin
 ```
 ## Meta
-Steam-ID – [@invoron](https://steamcommunity.com/id/dendironqwe) 
+Steam-ID – [@invoron](https://steamcommunity.com/id/dendironqwe)
 
 Mahesh-wor – [@mahesh-wor](https://twitter.com/dbader_org) – maheshwor89@gmail.com
 
