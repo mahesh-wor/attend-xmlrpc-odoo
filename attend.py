@@ -8,10 +8,10 @@ import os
 
 ############################################################################
 ###Credentials Administrator or one with manager access of Attendance module.
-username = 'xmlrpc'
-password = 'foo'
-db = 'xmlrpc' #database name
-url='http://localhost:8082' #odooserver url
+username = 'your-user-name-here'
+password = 'your-password-here'
+db = 'your-database-name-here' #database name
+url='your-odooserver-url-here' #odooserver url
 
 ############################################################################
 ###Help Usuage Printing.
