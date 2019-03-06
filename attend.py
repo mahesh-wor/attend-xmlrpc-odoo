@@ -17,7 +17,7 @@ url='http://localhost:8082' #odooserver url
 ###Help Usuage Printing.
 def attend_help():
     print("""
-Usuage: attend <username> checkin/checkout
+Usage: attend <username> checkin/checkout
 Good Luck !!
     """)
 
