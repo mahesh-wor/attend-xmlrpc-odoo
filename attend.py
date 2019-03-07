@@ -1,11 +1,11 @@
-#!/usr/bin/python2
+#!/usr/bin/python3
 ############################################################################
 ### Some Casual Imports
 import xmlrpc.client
 import datetime
 import sys
 import os
-
+from fuzzywuzzy import fuzz
 ############################################################################
 ###Credentials Administrator or one with manager access of Attendance module.
 username = 'xmlrpc'
@@ -26,7 +26,7 @@ Roses are red, Violets are blue
 without any arguments master,
 what am i going to do. """)
     attend_help()
-    sys.exit()()
+    sys.exit()
 ############################################################################
 ###Try-except to prevent Error raises
 try:
@@ -34,7 +34,7 @@ try:
 except IndexError as indexerrname:
     print("You sure that employee exists?")
     attend_help()
-    sys.exit()()
+    sys.exit()
 
 ############################################################################
 ###Try-except to prevent Error raises
@@ -43,7 +43,7 @@ try:
 except IndexError as indexerrio:
     print("Makeup your mind. It's easy either checkin or checkout.")
     attend_help()
-    sys.exit()()
+    sys.exit()
 
 ############################################################################
 ### xmlrpc objects
@@ -61,7 +61,7 @@ emp_list = models.execute_kw(db, uid, password,'hr.employee', 'search_read',[],{
 ############################################################################
 ###Fuzzy Searching if the fuzzy.ratio > 50 then choose it.
 for each in emp_list:
-    if fuzz.partial_ratio(each['name'],emp_name) > 50:
+    if fuzz.partial_ratio(each['name'],emp_name) > 75:
         emp_name = each['name']
 ############################################################################
 ###Try-except to prevent Error raises if the employee index don't exist
@@ -70,7 +70,7 @@ try:
 except IndexError as indexerrempid:
     print("You sure that employee exists?")
     attend_help()
-    sys.exit()()
+    sys.exit()
 
 ############################################################################
 ### Get attendance state of the user.
@@ -101,6 +101,6 @@ elif (attend_state == 'checked_out' and chkinout == 'checkout'):
 else:
     print("Makeup your mind. It's easy either checkin or checkout.")
     attend_help()
-sys.exit()()
+sys.exit()
 ############################################################################
 ### End of Script , Ez.
