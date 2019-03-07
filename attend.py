@@ -18,8 +18,7 @@ url='http://localhost:8082' #odooserver url
 def attend_help():
     print("""
 Usage: attend <username> checkin/checkout
-Good Luck !!
-    """)
+Good Luck !!""")
 
 if len(sys.argv)==1:
     print("""
@@ -27,7 +26,7 @@ Roses are red, Violets are blue
 without any arguments master,
 what am i going to do. """)
     attend_help()
-    exit()
+    sys.exit()()
 ############################################################################
 ###Try-except to prevent Error raises
 try:
@@ -35,7 +34,7 @@ try:
 except IndexError as indexerrname:
     print("You sure that employee exists?")
     attend_help()
-    exit()
+    sys.exit()()
 
 ############################################################################
 ###Try-except to prevent Error raises
@@ -44,7 +43,7 @@ try:
 except IndexError as indexerrio:
     print("Makeup your mind. It's easy either checkin or checkout.")
     attend_help()
-    exit()
+    sys.exit()()
 
 ############################################################################
 ### xmlrpc objects
@@ -66,7 +65,7 @@ try:
 except IndexError as indexerrempid:
     print("You sure that employee exists?")
     attend_help()
-    exit()
+    sys.exit()()
 
 ############################################################################
 ### Get attendance state of the user.
@@ -97,6 +96,6 @@ elif (attend_state == 'checked_out' and chkinout == 'checkout'):
 else:
     print("Makeup your mind. It's easy either checkin or checkout.")
     attend_help()
-exit()
+sys.exit()()
 ############################################################################
 ### End of Script lol
