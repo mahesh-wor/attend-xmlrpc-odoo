@@ -14,7 +14,7 @@ db = 'xmlrpc' #database name
 url='http://localhost:8082' #odooserver url
 
 ############################################################################
-###Help Usuage Printing.
+###Help Usage Printing.
 def attend_help():
     print("""
 Usage: attend <username> checkin/checkout
@@ -98,4 +98,4 @@ else:
     attend_help()
 sys.exit()()
 ############################################################################
-### End of Script lol
+### End of Script , Ez.
