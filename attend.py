@@ -23,9 +23,10 @@ url='http://localhost:8082'
 ###Help Usuage Printing.
 def attend_help():
     print("""
-Usage: attend <username> checkin/checkout
-Good Luck !!
-    """)
+######################################
+# attend <yourname> checkin/checkout #
+######################################
+""")
 
 if len(sys.argv)==1:
     print("""
@@ -105,7 +106,7 @@ elif (attend_state == 'checked_in' and chkinout == 'checkout'):
 elif (attend_state == 'checked_in' and chkinout == 'checkin'):
     print('You are already Checked In.')
     print("Please CheckOut first.")
-    attend_help()
+
 elif (attend_state == 'checked_out' and chkinout == 'checkout'):
     print("You have already Checked Out.")
     print("Please CheckIn first.")
