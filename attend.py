@@ -59,6 +59,11 @@ uid = common.authenticate(db, username, password, {})
 emp_list = models.execute_kw(db, uid, password,'hr.employee', 'search_read',[],{'fields': ['name']})
 
 ############################################################################
+###Fuzzy Searching if the fuzzy.ratio > 50 then choose it.
+for each in emp_list:
+    if fuzz.partial_ratio(each['name'],emp_name) > 50:
+        emp_name = each['name']
+############################################################################
 ###Try-except to prevent Error raises if the employee index don't exist
 try:
     usr_emp_id=list(filter(lambda person: person['name'] == emp_name, emp_list))[0]['id']
