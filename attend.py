@@ -105,13 +105,13 @@ elif (attend_state == 'checked_in' and chkinout == 'checkout'):
     print('CheckedOut')
 elif (attend_state == 'checked_in' and chkinout == 'checkin'):
     print('You are already Checked In.')
-    print("Please CheckOut first.")
+    print("Please Check Out first.")
 
 elif (attend_state == 'checked_out' and chkinout == 'checkout'):
     print("You have already Checked Out.")
-    print("Please CheckIn first.")
+    print("Please Check In first.")
 else:
-    print("Makeup your mind. It's easy either checkin or checkout.")
+    print("Makeup your mind. It's easy, either checkin or checkout.")
     attend_help()
 sys.exit()
 ############################################################################
