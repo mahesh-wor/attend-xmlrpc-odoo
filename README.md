@@ -8,15 +8,22 @@
 Linux: (can be modified for windows & osx)
 
 ```sh
-git clone https://github.com/mahesh-wor/attend-xmlrpc-odoo
-cd attend-xmlrpc-odoo
-chmod +x attend.py
+$ git clone https://github.com/mahesh-wor/attend-xmlrpc-odoo
+$ cd attend-xmlrpc-odoo
+$ chmod +x attend.py
 ```
 
 ## Usage example
 ```
-python2 attend.py <username> checkin/out
-./attend.py invoron checkin
+$ python2 attend.py <username> checkin/out
+$ ./attend.py invoron checkin
+```
+## Making an executeable with pyinstaller
+```
+$ pip3 install pyinstaller
+$ pyinstaller --onefile attend.py
+$ cp dist/attend /usr/bin
+$ attend <username> checkin/out/status/state
 ```
 ## Meta
 Steam-ID – [@invoron](https://steamcommunity.com/id/dendironqwe)
@@ -25,7 +32,7 @@ Mahesh-wor – [@mahesh-wor](https://twitter.com/dbader_org) – maheshwor89@gma
 
 Distributed under the GPL license. See ``LICENSE`` for more information.
 
-[https://github.com/mahesh-wor/attend-xmlrpc-odoo(https://github.com/dbader/)
+[https://github.com/mahesh-wor/attend-xmlrpc-odoo]
 
 ## Contributing
 
